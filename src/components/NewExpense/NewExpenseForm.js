@@ -24,7 +24,7 @@ const NewExpenseForm = () => {
     const expenseSubHandler = (event) => {
 
         event.preventDefault();
-        
+
         const expenseData = {
             title: enterTitle,
             amount: enterAmount,
@@ -32,6 +32,9 @@ const NewExpenseForm = () => {
         };
 
         console.log(expenseData);
+        setEnterTitle('');
+        setEnterAmount('');
+        setEnterDate('');
     };
 
     return (
@@ -39,15 +42,15 @@ const NewExpenseForm = () => {
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
-                    <input type="text" onChange={titleChangeHandler}/>
+                    <input type="text" value={enterTitle} onChange={titleChangeHandler}/>
                 </div>
                 <div className="new-expense__control">
                     <label>Amount</label>
-                    <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
+                    <input type="number" value={enterAmount} min="0.01" step="0.01" onChange={amountChangeHandler}/>
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
-                    <input type="date" min="2022-01-01" max="2025-01-01" onChange={dateChangeHandler}/>
+                    <input type="date" value={enterDate} min="2022-01-01" max="2025-01-01" onChange={dateChangeHandler}/>
                 </div>
             </div>
             <div className="new-expense__actions">
